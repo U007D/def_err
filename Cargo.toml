@@ -1,0 +1,6 @@
+[package]
+name = "def_err"
+version = "0.1.0"
+authors = ["bRad <brad@humanenginuity.com>"]
+
+[dependencies]
