@@ -1,3 +1,2 @@
-/Users/bRad/Development/bg/projects/rust/def_err/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/bRad/Development/bg/projects/rust/def_err/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/bRad/Development/bg/projects/rust/def_err/cmake-build-debug/CMakeFiles/def_err.dir
+/home/brad/development/rust/def_err/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/brad/development/rust/def_err/cmake-build-debug/CMakeFiles/edit_cache.dir

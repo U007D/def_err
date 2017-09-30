@@ -1,2 +1,2 @@
 Options: 
-CMake: 3.8.2@/Users/bRad/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/172.3968.17/CLion.app/Contents/bin/cmake/bin/cmake
+CMake: 3.8.2@/home/brad/Applications/clion-2017.2.2/bin/cmake/bin/cmake

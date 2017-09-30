@@ -1,21 +1,18 @@
-"/Users/bRad/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/172.3968.17/CLion.app/Contents/bin/cmake/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/bRad/Development/bg/projects/rust/def_err
--- The C compiler identification is Clang 4.0.0
--- The CXX compiler identification is Clang 4.0.0
--- Check for working C compiler: /usr/local/bin/clang
--- Check for working C compiler: /usr/local/bin/clang -- works
+/home/brad/Applications/clion-2017.2.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/brad/development/rust/def_err
+-- The C compiler identification is GNU 7.2.0
+-- The CXX compiler identification is GNU 7.2.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Check for working CXX compiler: /usr/local/bin/clang++
--- Check for working CXX compiler: /usr/local/bin/clang++ -- works
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Configuring done
-CMake Error: CMake can not determine linker language for target: def_err
-CMake Error: Cannot determine link language for target "def_err".
 -- Generating done
--- Build files have been written to: /Users/bRad/Development/bg/projects/rust/def_err/cmake-build-debug
-Unable to determine product file path for target def_err (Debug). Running and debugging will be unavailable.
+-- Build files have been written to: /home/brad/development/rust/def_err/cmake-build-debug
