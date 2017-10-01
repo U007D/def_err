@@ -1,11 +1,23 @@
 macro_rules! def_err {
-    ( $err:ident ) => {
-        let variant = env!("CARGO_PKG_NAME").to_string() + "::Error::" + &stringify!($err);
-        println!("{}", variant);
+    ( $err_type:ty { $( $err:ident ),+ } ) => {
+        let crate_name = String::from(env!("CARGO_PKG_NAME"));
+        let error_type = stringify!($err_type);
+        $( println!("{}::{}::{}", crate_name, error_type, stringify!($err)); ),+
     };
-//    ( $( $err:ident),+ , ) => { def_err! { $( $err),* } };
+
+    ( $( $err:ident ),+ ) => {
+        def_err! { Error { $( $err ),+ } };
+    };
 }
 
 pub fn main() {
-    def_err!(MyVariant);
+    def_err! {
+        Foo {
+            MyVariant
+        }
+    };
+
+    def_err! {
+        MyVariant2
+    };
 }
