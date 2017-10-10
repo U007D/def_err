@@ -1,6 +1,7 @@
 [package]
+authors = ["bRad <brad@humanenginuity.com>"]
 name = "def_err"
 version = "0.1.0"
-authors = ["bRad <brad@humanenginuity.com>"]
 
 [dependencies]
+libc = "0.2.32"

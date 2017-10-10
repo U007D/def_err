@@ -48,10 +48,10 @@ RM = /home/brad/Applications/clion-2017.2.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/brad/development/rust/def_err
+CMAKE_SOURCE_DIR = /home/brad/Development/rust/def_err
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/brad/development/rust/def_err/cmake-build-debug
+CMAKE_BINARY_DIR = /home/brad/Development/rust/def_err/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/brad/development/rust/def_err/cmake-build-debug/CMakeFiles /home/brad/development/rust/def_err/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brad/Development/rust/def_err/cmake-build-debug/CMakeFiles /home/brad/Development/rust/def_err/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/brad/development/rust/def_err/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/brad/Development/rust/def_err/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

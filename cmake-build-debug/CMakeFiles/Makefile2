@@ -54,10 +54,10 @@ RM = /home/brad/Applications/clion-2017.2.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/brad/development/rust/def_err
+CMAKE_SOURCE_DIR = /home/brad/Development/rust/def_err
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/brad/development/rust/def_err/cmake-build-debug
+CMAKE_BINARY_DIR = /home/brad/Development/rust/def_err/cmake-build-debug
 
 #=============================================================================
 # Special targets to cleanup operation of make.
