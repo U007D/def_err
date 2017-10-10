@@ -30,7 +30,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e31cc472-69ef-4838-b5bc-7fdf1a5a629d" name="Default" comment="WIP: interim commit">
+    <list default="true" id="e31cc472-69ef-4838-b5bc-7fdf1a5a629d" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeCCompiler.cmake" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.8.2/CMakeCXXCompiler.cmake" afterPath="" />
@@ -57,9 +57,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/def_err.cbp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cargo.lock" afterPath="$PROJECT_DIR$/Cargo.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Cargo.toml" afterPath="$PROJECT_DIR$/Cargo.toml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.rs" afterPath="$PROJECT_DIR$/src/main.rs" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -234,7 +231,7 @@
       <workItem from="1507155433403" duration="39000" />
       <workItem from="1507301332601" duration="1845000" />
       <workItem from="1507567606651" duration="6239000" />
-      <workItem from="1507616223085" duration="284000" />
+      <workItem from="1507616223085" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="WIP: interim commit">
       <created>1507314028080</created>
@@ -257,11 +254,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507616413376</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="WIP: interim commit">
+      <created>1507616526153</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1507616526153</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20256000" />
+    <option name="totallyTimeSpent" value="20278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="834" y="39" width="2181" height="1401" extended-state="0" />
@@ -296,9 +300,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="WIP: interim commit" />
     <MESSAGE value="updated .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated .gitignore" />
+    <MESSAGE value="WIP: interim commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP: interim commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
