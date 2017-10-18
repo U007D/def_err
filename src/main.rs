@@ -36,12 +36,12 @@ macro_rules! parse_vardecls {
     // Terminate processing when nothing left to parse
     () => {};
 
-    // Consume variant vardecl's trailing comma
+    // Consume vardecl's trailing comma
     (, $($rest:tt)*) => { parse_vardecls!($($rest)*); };
 
-    // Process one vardecl, then re-invoke parse_variants! to parse remaining input
+    // Process one vardecl, then re-invoke parse_variants! to parse remaining vardecls
     ($ident:ident $args:tt $($rest:tt)*) => {
-        println!("parse_vardecls:\tident: {}\n\targs: {}", stringify!($ident), stringify!($args));
+//        println!("parse_vardecls:\tident: {}\n\targs: {}", stringify!($ident), stringify!($args));
         parse_variant!($ident $args);
         parse_vardecls!($($rest)*);
     };
@@ -63,7 +63,22 @@ macro_rules! parse_variant {
 
     // Vardecl has args
     ($ident:ident ($($args:tt)*)) => {
-        println!("parse_variant:\tident(args): {}({})", stringify!($ident), stringify!($($args)*));
+        println!("parse_variant:\tident(args): {}", stringify!($ident));
+        parse_args!($($args)*)
+    };
+}
+
+macro_rules! parse_args {
+    // Terminate processing when nothing left to parse
+    () => {};
+
+    // Consume arg's trailing comma
+    (, $($rest:tt)*) => { parse_args!($($rest)*); };
+
+    // Process one arg, then re-invoke parse_args! to parse remaining args
+    ($ident:ident : $type:tt $($rest:tt)*) => {
+        println!("\tparse_args: ident: type: {}: {}", stringify!($ident), stringify!($type));
+        parse_args!($($rest)*);
     };
 }
 
@@ -71,12 +86,12 @@ fn main() {
     def_err! {
         SampleErr1(),
         SampleErr2(foo: u64, bar: f32),
-        SampleErr3("my message"),
-        SampleErr4(foo: u32, bar: f64; "another message: {}, {}", foo, bar),
-        SampleErr1b,
-        SampleErr5({std::fmt::Error}),
-        SampleErr6(foo: u8, bar: String; {std::fmt::Error}),
-        SampleErr7(baz: i64; {std::fmt::Error}, "and another message (baz: {})", baz),
-        SampleErr1c,
+//        SampleErr3("my message"),
+//        SampleErr4(foo: u32, bar: f64; "another message: {}, {}", foo, bar),
+//        SampleErr1b,
+//        SampleErr5({std::fmt::Error}),
+//        SampleErr6(foo: u8, bar: String; {std::fmt::Error}),
+//        SampleErr7(baz: i64; {std::fmt::Error}, "and another message (baz: {})", baz),
+//        SampleErr1c,
     };
 }
