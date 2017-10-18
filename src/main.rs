@@ -75,23 +75,54 @@ macro_rules! parse_args {
     // Consume arg's trailing comma
     (, $($rest:tt)*) => { parse_args!($($rest)*); };
 
-    // Process one arg, then re-invoke parse_args! to parse remaining args
+    // Parse extended parameters (triggered by ;)
+    (; $($rest:tt)*) => { parse_extparams!($($rest)*); };
+
+    // Parse extended parameters (triggered by { causal_error })
+    ({ $cause:ty }) => { parse_extparams!($cause,); };
+
+    // Parse extended parameters (triggered by Display str)
+    ($($rest:expr)*) => { parse_extparams!($($rest)*); };
+
+    // Parse extended parameters (triggered by { causal_error }, Display str)
+    ({ $cause:ty }, $($rest:tt)*) => { parse_extparams!($cause, $($rest)*); };
+
+    // Process one ident: type arg, then re-invoke parse_args! to parse remaining args
     ($ident:ident : $type:tt $($rest:tt)*) => {
         println!("\tparse_args: ident: type: {}: {}", stringify!($ident), stringify!($type));
         parse_args!($($rest)*);
     };
 }
 
+macro_rules! parse_extparams {
+    // Terminate processing when nothing left to parse
+    () => {};
+
+    // Consume extparam's trailing comma
+    (, $($rest:tt)*) => { parse_args!($($rest)*); };
+
+    // Parse cause extparam
+    ($cause:ty, $($rest:tt)*) => {
+        println!("parse_extparam: cause: {}", stringify!($cause));
+        parse_extparams!($($rest)*);
+    };
+
+    // Parse Display str extended parameters (always terminal argument due to format str varargs)
+    ($($rest:tt)*) => {
+        println!("parse_extparam: Display {}", stringify!($($rest)*));
+    };
+
+}
+
 fn main() {
     def_err! {
-        SampleErr1(),
+        SampleErr1,
         SampleErr2(foo: u64, bar: f32),
-//        SampleErr3("my message"),
-//        SampleErr4(foo: u32, bar: f64; "another message: {}, {}", foo, bar),
-//        SampleErr1b,
-//        SampleErr5({std::fmt::Error}),
-//        SampleErr6(foo: u8, bar: String; {std::fmt::Error}),
-//        SampleErr7(baz: i64; {std::fmt::Error}, "and another message (baz: {})", baz),
-//        SampleErr1c,
+        SampleErr3("my message"),
+        SampleErr4(foo: u32, bar: f64; "another message: {}, {}", foo, bar),
+        SampleErr5({std::fmt::Error}),
+        SampleErr6(foo: u8, bar: String; {std::fmt::Error}),
+        SampleErr7(baz: i64; {std::fmt::Error}, "and another message (baz: {})", baz),
+        SampleErr8(),
     };
 }
