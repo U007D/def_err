@@ -4,7 +4,7 @@ trace_macros!(true);
 // Processing starts here -- Process list of supplied error variants
 #[macro_export]
 macro_rules! def_err {
-    ($err_typename:ident { $($err_vardecls:tt)+ }) => {
+    ($err_typename:ident { $($err_variants:tt)+ }) => {
         //Preamble
 //        use std::error::Error as StdError;
 //        use std::fmt;
@@ -12,7 +12,7 @@ macro_rules! def_err {
         // Build enum
         //#[derive(Clone, PartialEq, PartialOrd)]
         //pub enum $err_typename {
-            parse_vardecls!($( $err_vardecls )+);
+            $(parse_variant!($err_variants)),+;
         //}
 
         // Build description
@@ -33,42 +33,26 @@ macro_rules! def_err {
     ($err_variant:ident $($rest:tt)*) => { def_err!(Error { $err_variant $($rest)* }); };
 }
 
-// Parse variant declarations
-macro_rules! parse_vardecls {
-    // Terminate processing when nothing left to parse
-    () => {};
-
-    // Consume vardecl's trailing comma
-    (, $($rest:tt)*) => { , parse_vardecls!($($rest)*); };
-
-    // Process one vardecl, then re-invoke parse_variants! to parse remaining vardecls
-    ($ident:ident $args:tt $($rest:tt)*) => {
-        $ident
-        parse_variant!($ident $args);
-        parse_vardecls!($($rest)*);
-    };
-}
-
 macro_rules! parse_variant {
     // Terminate processing when nothing left to parse
-    () => {};
+//    () => {};
 
-    // Vardecl has no args
-    ($ident:ident ,) => {};
+    // Variant has no args
+    ($ident:ident ,) => { $ident };
 
-    // Vardecl has no args (empty parentheses)
-    ($ident:ident ()) => { () };
+    // Variant has no args (empty parentheses)
+    ($ident:ident ()) => { $ident() };
 
-    // Vardecl has args
-    ($ident:ident ($($args:tt)*)) => { ( parse_args!($($args)*) ) };
+    // Variant has args
+    ($ident:ident ($($args:tt)*)) => { ( $(parse_args!($arg0)),+ ) };
 }
 
 macro_rules! parse_args {
     // Terminate processing when nothing left to parse
-    () => {};
+//    () => {};
 
     // Consume arg's trailing comma
-    (, $($rest:tt)*) => { , parse_args!($($rest)*); };
+//    (, $($rest:tt)*) => { , parse_args!($($rest)*); };
 
     // Parse extended parameters (triggered by ;)
     (; $($rest:tt)*) => { /*parse_extparams!($($rest)*);*/ };
@@ -85,7 +69,7 @@ macro_rules! parse_args {
     // Process one `ident: type` arg, then re-invoke parse_args! to parse remaining args
     ($ident:ident : $type:tt $($rest:tt)*) => {
         $ident: $type
-        parse_args!($($rest)*);
+//        parse_args!($($rest)*);
     };
 }
 
